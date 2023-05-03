@@ -1,8 +1,5 @@
 import 'dart:math';
-import 'package:flame/collisions.dart';
-import 'package:flame_forge2d/contact_callbacks.dart';
 import 'package:flame/components.dart';
-import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flutter/material.dart';
@@ -110,16 +107,26 @@ class BallTemplate {
   final Color color;
 
   static final Map<int, BallTemplate> map = {
-    0: BallTemplate(0, 2, const Color.fromARGB(255, 232, 211, 192)),
-    1: BallTemplate(1, 2.5, const Color.fromARGB(255, 183, 127, 112)),
-    2: BallTemplate(2, 3, const Color.fromARGB(255, 214, 195, 139)),
-    3: BallTemplate(3, 3.5, const Color.fromARGB(255, 132, 155, 145)),
-    4: BallTemplate(4, 4, const Color.fromARGB(255, 167, 154, 137)),
-    5: BallTemplate(5, 4.5, const Color.fromARGB(255, 194, 206, 220)),
-    6: BallTemplate(6, 5, const Color.fromARGB(255, 176, 177, 182)),
-    7: BallTemplate(7, 5.5, const Color.fromARGB(255, 151, 151, 113)),
-    8: BallTemplate(8, 6, const Color.fromARGB(255, 145, 173, 158)),
-    9: BallTemplate(9, 6.5, const Color.fromARGB(255, 104, 103, 137)),
+    // 0: BallTemplate(0, 2, const Color.fromARGB(255, 232, 211, 192)),
+    // 1: BallTemplate(1, 2.5, const Color.fromARGB(255, 183, 127, 112)),
+    // 2: BallTemplate(2, 3, const Color.fromARGB(255, 214, 195, 139)),
+    // 3: BallTemplate(3, 3.5, const Color.fromARGB(255, 132, 155, 145)),
+    // 4: BallTemplate(4, 4, const Color.fromARGB(255, 167, 154, 137)),
+    // 5: BallTemplate(5, 4.5, const Color.fromARGB(255, 194, 206, 220)),
+    // 6: BallTemplate(6, 5, const Color.fromARGB(255, 176, 177, 182)),
+    // 7: BallTemplate(7, 5.5, const Color.fromARGB(255, 151, 151, 113)),
+    // 8: BallTemplate(8, 6, const Color.fromARGB(255, 145, 173, 158)),
+    // 9: BallTemplate(9, 6.5, const Color.fromARGB(255, 104, 103, 137)),
+    0: BallTemplate(0, 2, Colors.accents[0]),
+    1: BallTemplate(1, 2.5, Colors.accents[1]),
+    2: BallTemplate(2, 3, Colors.accents[2]),
+    3: BallTemplate(3, 3.5, Colors.accents[3]),
+    4: BallTemplate(4, 4, Colors.accents[4]),
+    5: BallTemplate(5, 4.5, Colors.accents[5]),
+    6: BallTemplate(6, 5, Colors.accents[6]),
+    7: BallTemplate(7, 5.5, Colors.accents[7]),
+    8: BallTemplate(8, 6, Colors.accents[8]),
+    9: BallTemplate(9, 6.5, Colors.accents[9]),
   };
 
   BallTemplate(this.id, this.radius, this.color);
