@@ -161,7 +161,6 @@ mixin Percent on Component {
         end = true;
         p = 1;
       }
-      p = Curves.easeOutBack.transform(p);
     }
     return p;
   }
@@ -198,6 +197,7 @@ class Ball extends BodyComponent with Tappable, Percent {
   }
 
   void _setRadius(Shape s, double p) {
+    p = const Cubic(0.175, 0.885, 0.32, 2).transform(p);
     s.radius =
         fromTemplate!.radius + (toTemplate.radius - fromTemplate!.radius) * p;
   }
