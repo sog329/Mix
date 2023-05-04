@@ -67,7 +67,7 @@ class Forge2DExample extends Forge2DGame with HasTappables, ContactListener {
               toTemplate: nextTemplate);
           add(ball);
           // BloomParticle(gameRef).show(p, nowTemplate.radius/100);
-          // particle
+          //particle
           // add(
           //   ParticleSystemComponent(
           //     position: contact.bodyA.position,
@@ -129,6 +129,11 @@ class BallTemplate {
   static BallTemplate? next(BallTemplate t) {
     return BallTemplate.map[t.id + 1];
   }
+
+  static Color lastColor(BallTemplate t) {
+    BallTemplate? tmp = map[t.id - 1];
+    return tmp == null ? Colors.white : tmp!.color;
+  }
 }
 
 mixin Percent on Component {
@@ -180,6 +185,10 @@ class Ball extends BodyComponent with Tappable, Percent {
   @override
   Body createBody() {
     paint.color = toTemplate.color;
+    paint.shader = LinearGradient(
+            colors: [BallTemplate.lastColor(toTemplate), toTemplate.color])
+        .createShader(
+            Rect.fromCircle(center: Offset.zero, radius: toTemplate.radius));
     final shape = CircleShape();
     shape.radius = toTemplate.radius;
 
@@ -199,11 +208,6 @@ class Ball extends BodyComponent with Tappable, Percent {
       b.linearVelocity += speed!;
     }
     return b;
-  }
-
-  @override
-  void onEnd() {
-    fromTemplate = null;
   }
 }
 
