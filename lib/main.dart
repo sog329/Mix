@@ -7,10 +7,12 @@ import 'package:flame_forge2d/flame_forge2d.dart' hide Particle;
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(GameWidget(game: Forge2DExample()));
+  runApp(SafeArea(
+    child: GameWidget(game: MixGame()),
+  ));
 }
 
-class Forge2DExample extends Forge2DGame with HasTappables, ContactListener {
+class MixGame extends Forge2DGame with HasTappables, ContactListener {
   @override
   Future<void> onLoad() async {
     BallTemplate? t = BallTemplate.random();
@@ -197,7 +199,8 @@ class Ball extends BodyComponent with Tappable, Percent {
   }
 
   void _setRadius(Shape s, double p) {
-    p = const Cubic(0.175, 0.885, 0.32, 2).transform(p);
+    // p = const Cubic(0.175, 0.885, 0.32, 2).transform(p);
+    p = Curves.bounceOut.transform(p);
     s.radius =
         fromTemplate!.radius + (toTemplate.radius - fromTemplate!.radius) * p;
   }
