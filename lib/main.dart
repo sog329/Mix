@@ -7,9 +7,11 @@ import 'package:flame_forge2d/flame_forge2d.dart' hide Particle;
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(SafeArea(
-    child: GameWidget(game: MixGame()),
-  ));
+  runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: GameWidget(game: MixGame()),
+      )));
 }
 
 class MixGame extends Forge2DGame with HasTappables, ContactListener {
